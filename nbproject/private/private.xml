@@ -5,7 +5,11 @@
         <group>
             <file>file:/home/12934713/NetBeansProjects/Pizza/src/controller/PizzeriaController.java</file>
             <file>file:/home/12934713/NetBeansProjects/Pizza/src/view/pizzeria.png</file>
+            <file>file:/home/12934713/NetBeansProjects/Pizza/src/controller/CustomerAddController.java</file>
+            <file>file:/home/12934713/NetBeansProjects/Pizza/src/model/Pizza.java</file>
             <file>file:/home/12934713/NetBeansProjects/Pizza/src/view/pizzeria.fxml</file>
+            <file>file:/home/12934713/NetBeansProjects/Pizza/src/model/Pizzeria.java</file>
+            <file>file:/home/12934713/NetBeansProjects/Pizza/src/model/Kitchen.java</file>
         </group>
     </open-files>
 </project-private>

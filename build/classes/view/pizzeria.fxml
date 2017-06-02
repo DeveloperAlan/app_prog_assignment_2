@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Label?>
 <?import java.net.URL?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.image.ImageView?>
@@ -23,6 +24,19 @@
         </ImageView>
         <Text styleClass="heading" text="Main Menu" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
     </GridPane>
+    
+    <HBox prefHeight="250" alignment="center" spacing="10">
+        <ListView prefWidth="200" prefHeight="200" items="${controller.pizzeria.customers}" fx:id="customersLv">
+            <placeholder>
+                <Label text="No customers" />
+            </placeholder>
+        </ListView>
+    </HBox>
 
+    <HBox prefHeight="50.0" alignment="center" spacing="10" GridPane.columnIndex="0" >
+        <Button text="Add Customer" />
+        <Button text="Serve Customer" />
+        <Button text="View report" />
+    </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>
