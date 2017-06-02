@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
         fx:controller="controller.ServeController"
@@ -18,5 +19,9 @@
         styleClass="root"
         >
 
+    <HBox prefHeight="50.0" alignment="center" spacing="10">
+        <Button text="Serve Customer" />
+        <Button text="View report" />
+    </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>

@@ -10,33 +10,40 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
         fx:controller="controller.PizzeriaController"
         alignment="center" spacing="10" 
         styleClass="root"
         >
-    <GridPane alignment="center" hgap="10" vgap="10" >
+    <GridPane alignment="center" hgap="10" vgap="10">
         <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0">
             <image>
                 <Image url="@pizzeria.png" />
             </image>
         </ImageView>
         <Text styleClass="heading" text="Main Menu" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
+        <padding> 
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
     </GridPane>
     
-    <HBox prefHeight="250" alignment="center" spacing="10">
-        <ListView prefWidth="200" prefHeight="200" items="${controller.pizzeria.customers}" fx:id="customersLv">
+    <HBox prefHeight="208" alignment="center" spacing="10">
+        <ListView prefWidth="250" prefHeight="208" items="${controller.pizzeria.customers}" fx:id="customersLv">
             <placeholder>
                 <Label text="No customers" />
             </placeholder>
         </ListView>
+        <padding> 
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
     </HBox>
 
-    <HBox prefHeight="50.0" alignment="center" spacing="10" GridPane.columnIndex="0" >
-        <Button text="Add Customer" />
-        <Button text="Serve Customer" />
-        <Button text="View report" />
+    <HBox prefHeight="50.0" alignment="center" spacing="10">
+        <Button text="Add Customer" onAction="#handleAddCustomerAction"/>
+        <Button text="Serve Customer" onAction="#handleServeCustomerAction"/>
+        <Button text="View report" onAction="#handleViewReportAction"/>
     </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>

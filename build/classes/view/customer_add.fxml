@@ -9,5 +9,19 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.GridPane?>
 
-<VBox xmlns:fx="http://javafx.com/fxml">
+<VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="controller.PizzeriaController"
+        alignment="center" spacing="10" 
+        styleClass="root"
+        >
+    <GridPane alignment="center" hgap="10" vgap="10" >
+        <Text styleClass="heading" text="Main Menu" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
+    </GridPane>
+  
+    <HBox prefHeight="50.0" alignment="center" spacing="10" GridPane.columnIndex="0" >
+        <Button text="Add Customer" onAction="#handleAddCustomerAction"/>
+        <Button text="Serve Customer" />
+        <Button text="View report" />
+    </HBox>
+    <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>
