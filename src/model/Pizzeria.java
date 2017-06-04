@@ -3,6 +3,7 @@ package model;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class Pizzeria {
     private ObservableList<Customer> customers = FXCollections.observableArrayList();
@@ -28,8 +29,7 @@ public class Pizzeria {
 
     public Customer addCustomer(String phone, String name) {
         if (customer(phone) != null) {
-            System.out.println("An existing customer has that phone number");
-            return null;
+            throw new NullPointerException();
         }
         else {
             Customer customer = new Customer(kitchen, phone, name);

@@ -20,14 +20,15 @@
   
     <GridPane alignment="center" hgap="10" vgap="10" styleClass="header">
         <Label text="Phone number" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
+        <TextField onKeyReleased="#handleTextAction"   GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2" fx:id="phoneTf"  />
         <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2"  />
+        <TextField onKeyReleased="#handleTextAction" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2" fx:id="nameTf" />
+        <Text fx:id="statusText" id="message" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2"/>
     </GridPane>
     
     <HBox prefHeight="50.0" alignment="center" spacing="10" styleClass="footer">
-        <Button text="Cancel" />
-        <Button text="Add"/>
+        <Button text="Cancel" fx:id="cancelBtn" onAction="#handleCancelButtonAction" />
+        <Button text="Add" fx:id="addBtn" onAction="#handleAddButtonAction" />
     </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>
