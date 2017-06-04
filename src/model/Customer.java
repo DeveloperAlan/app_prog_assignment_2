@@ -1,6 +1,9 @@
 package model;
 
 import java.util.LinkedList;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,7 +13,7 @@ public class Customer {
     private String name;
     private ObservableList<Pizza> order = FXCollections.observableArrayList();
     private ObservableList<Pizza> ordered = FXCollections.observableArrayList();
-    private double orderPrice;
+    private DoubleProperty orderPrice = new SimpleDoubleProperty();
 //    private LinkedList<Pizza> ordered = new LinkedList<Pizza>();
 //    private LinkedList<Pizza> order = new LinkedList<Pizza>();
 
@@ -37,11 +40,20 @@ public class Customer {
         }
     }
 
-    public double getOrderPrice() {
+    public final double getOrderPrice() {
+        return orderPrice.get();
+    }
+    
+    private void setOrderPrice() {
         double sum = 0.0;
         for (Pizza pizza : order)
             sum += pizza.getPrice();
-        return sum;
+        orderPrice.set(sum);
+    }
+    
+    public ReadOnlyDoubleProperty orderPriceProperty() {
+        setOrderPrice();
+        return orderPrice;
     }
 
     public Kitchen getKitchen() {
@@ -82,6 +94,7 @@ public class Customer {
     // If you want to order a pizza, you should instead use pizza.order();
     void order(Pizza pizza) {
         order.add(pizza);
+        setOrderPrice();
     }
 
     public boolean matches(String phone) {

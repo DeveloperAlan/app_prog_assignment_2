@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Customer;
 import model.Pizzeria;
@@ -21,10 +22,12 @@ public class ServeController extends Controller<Customer>{
     @FXML private String phone;
     @FXML private ListView<Pizza> orderLv;
     @FXML private ComboBox<Pizza> orderedLv;
+    @FXML private Text orderTotal; 
     
     @FXML public void initialize() {
         observeSubmit();
         observePizzaComboBox();
+        orderTotal.textProperty().bind(model.orderPriceProperty().asString("$%.2f"));
     }
     
     public final Customer getCustomer() {
@@ -53,8 +56,13 @@ public class ServeController extends Controller<Customer>{
         chosenPizza.order();
     }
     
+    @FXML protected void handleSubmitOrderAction(ActionEvent event) throws Exception {
+        model.submitOrder();
+        stage.close();
+    }
     
-    @FXML protected void handleCancelPizzaAction(ActionEvent event) throws Exception {
+    
+    @FXML protected void handleCancelOrderAction(ActionEvent event) throws Exception {
         model.cancelOrder();
         stage.close();
     }
