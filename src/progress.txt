@@ -3,7 +3,7 @@
 [y] The Serve customer window is at least partially done.
 [y] The Serve customer window is done.
 [y] The Create pizza window is at least partially done.
-[?] The Create pizza window is done.
+[y] The Create pizza window is done.
 [?] The Add customer window is at least partially done.
 [?] The Add customer window is done.
 [?] The Income report window is at least partially done.

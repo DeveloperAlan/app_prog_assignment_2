@@ -29,19 +29,19 @@
         <HBox prefHeight="400" alignment="center" spacing="10" styleClass="body" GridPane.columnIndex="0" GridPane.rowIndex="0"  >
             <VBox spacing="10">
                 <Text styleClass="big" text="Available" />
-                <ListView prefWidth="200" prefHeight="400">
+                <ListView prefWidth="200" prefHeight="400" fx:id="kitchenLv">
                     <placeholder>
                         <Label text="No ingredients available" />
                     </placeholder>
                 </ListView>                
             </VBox>
             <VBox alignment="center" spacing="10">
-                <Button text="->" />
-                <Button text="&lt;-" />
+                <Button text="->" fx:id="addButton" onAction="#handleAddButtonAction" />
+                <Button text="&lt;-" fx:id="removeButton" onAction="#handleRemoveButtonAction" />
             </VBox>
             <VBox spacing="10">
                 <Text styleClass="big" text="Selected" />
-                <ListView prefWidth="200" prefHeight="400">
+                <ListView prefWidth="200" prefHeight="400" fx:id="ingredientsLv">
                     <placeholder>
                         <Label text="No ingredients on pizza" />
                     </placeholder>
@@ -50,17 +50,17 @@
         </HBox>
         <HBox styleClass="body" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <Label text="Price: "/>
-            <Text text="0.0" />
+            <Text fx:id="pizzaTotal" />
         </HBox>
         <HBox styleClass="body" GridPane.columnIndex="0" GridPane.rowIndex="2" alignment="center" >
-            <Text id="message" text="Need 1 crust, 1 sauce and 2 toppings" />
+            <Text fx:id="statusText" id="message"/>
         </HBox>
         
     </GridPane>
     
     <HBox prefHeight="50.0" alignment="center" spacing="10">
-        <Button text="Cancel"/>
-        <Button text="Create"/>
+        <Button text="Cancel" onAction="#handleCancelPizzaAction"/>
+        <Button text="Create" fx:id="createButton" onAction="#handleCreatePizzaAction" />
     </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>

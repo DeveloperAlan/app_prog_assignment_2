@@ -14,8 +14,6 @@ public class Customer {
     private ObservableList<Pizza> order = FXCollections.observableArrayList();
     private ObservableList<Pizza> ordered = FXCollections.observableArrayList();
     private DoubleProperty orderPrice = new SimpleDoubleProperty();
-//    private LinkedList<Pizza> ordered = new LinkedList<Pizza>();
-//    private LinkedList<Pizza> order = new LinkedList<Pizza>();
 
     public Customer(Kitchen kitchen, String phone, String name) {
         this.kitchen = kitchen;

@@ -1,13 +1,15 @@
 package model;
 
 import java.util.LinkedList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Kitchen {
     public static final Category CRUST = new Category("crust", 1, 1);
     public static final Category SAUCE = new Category("sauce", 1, 1);
     public static final Category TOPPING = new Category("topping", 2, 3);
     private Category[] categories = { CRUST, SAUCE, TOPPING };
-    private LinkedList<Ingredient> ingredients = new LinkedList<Ingredient>();
+    private ObservableList<Ingredient> ingredients = FXCollections.observableArrayList();
 
     public Kitchen() {
         // Don't change these ingredients
@@ -26,7 +28,7 @@ public class Kitchen {
         return categories;
     }
 
-    public LinkedList<Ingredient> getIngredients() {
+    public ObservableList<Ingredient> getIngredients() {
         return ingredients;
     }
 

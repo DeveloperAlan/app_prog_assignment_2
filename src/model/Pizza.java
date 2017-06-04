@@ -3,17 +3,27 @@ package model;
 import java.util.LinkedList;
 import java.util.Iterator;
 import java.text.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.beans.property.ReadOnlyStringProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Pizza {
     private Customer customer;
-    private LinkedList<Ingredient> ingredients = new LinkedList<Ingredient>();
+    private ObservableList<Ingredient> ingredients = FXCollections.observableArrayList();
     private int sold;
+    private StringProperty statusString = new SimpleStringProperty();
+    private DoubleProperty price = new SimpleDoubleProperty();
 
     public Pizza(Customer customer) {
         this.customer = customer;
     }
 
-    public final LinkedList<Ingredient> getIngredients() {
+    public final ObservableList<Ingredient> getIngredients() {
         return ingredients;
     }
 
@@ -26,11 +36,23 @@ public class Pizza {
     }
 
     public boolean add(Ingredient ingredient) {
-        return ingredients.add(ingredient);
+        ingredients.add(ingredient);
+        setStatusString();
+        setPrice();
+        return true;
     }
 
     public boolean remove(Ingredient ingredient) {
-        return ingredients.remove(ingredient);
+        ingredients.remove(ingredient);
+        setStatusString();
+        setPrice();
+        return true;
+    }
+    
+    public boolean checkIfPizzaIsValid() {
+        System.out.println(getStatusString().length() == 0);
+        System.out.println(getStatusString().length());
+        return getStatusString().length() == 0;
     }
 
     public void order() {
@@ -40,11 +62,31 @@ public class Pizza {
     public int getSold() {
         return sold;
     }
-
+    
+    public final double getPrice() {
+        return price.get();
+    }
+    
+    private void setPrice() {
+        double cost = 0.0;
+        for (Ingredient ingredient : ingredients)
+            cost += ingredient.getPrice();
+        price.set(cost);
+    }
+    
+    public ReadOnlyDoubleProperty priceProperty() {
+        setPrice();
+        return price;
+    }
+    
     public final String getStatusString() {
+        return statusString.get();
+    }
+
+    private void setStatusString() {
         LinkedList<Category> incompleteCategories = incompleteCategories();
         if (incompleteCategories().isEmpty())
-            return "";
+            statusString.set("");
         else {
             String s = "Need ";
             for (int i = 0; i < incompleteCategories.size(); i++) {
@@ -59,8 +101,13 @@ public class Pizza {
                     s += "more ";
                 s += category.name(needed);
             }
-            return s;
+            statusString.set(s);
         }
+    }
+    
+    public ReadOnlyStringProperty statusStringProperty() {
+        setStatusString();
+        return statusString;
     }
 
     private LinkedList<Category> incompleteCategories() {
@@ -70,14 +117,7 @@ public class Pizza {
                 matches.add(category);
         return matches;
     }
-
-    public double getPrice() {
-        double price = 0.0;
-        for (Ingredient ingredient : ingredients)
-            price += ingredient.getPrice();
-        return price;
-    }
-
+    
     public boolean isFull(Category category) {
         return ingredientCount(category) >= category.getMax();
     }
@@ -91,6 +131,10 @@ public class Pizza {
             if (!meetsMinimumRequirement(category))
                 return false;
         return true;
+    }
+    
+    public boolean ingredientsEmpty() {
+        return ingredients.size() == 0;
     }
 
     public int ingredientCount(Category category) {
