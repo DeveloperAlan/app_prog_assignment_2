@@ -42,9 +42,9 @@
     <VBox spacing="10">
         <HBox spacing="10"> 
             <Button text="Create pizza" />
-            <Text text="OR..."/>
-            <ComboBox promptText="choose"/>
-            <Button text="Select" />
+            <Text styleClass="big" text="OR..."/>
+            <ComboBox promptText="Select past popular pizza" items="${controller.customer.ordered}" fx:id="orderedLv"/>
+            <Button text="Select" fx:id="pizzaSelectBtn" onAction="#handlePizzaSelectionAction" />
         </HBox>
         <Text styleClass="big" text="Order" />
         <ListView prefWidth="250" prefHeight="208" items="${controller.customer.order}" fx:id="orderLv">
@@ -61,8 +61,8 @@
         </padding>
     </VBox>
     <HBox prefHeight="50.0" alignment="center" spacing="10">
-        <Button text="Serve Customer" />
-        <Button text="View report" />
+        <Button text="Cancel" onAction="#handleCancelPizzaAction" />
+        <Button text="Submit order" fx:id="submitBtn"/>
     </HBox>
     <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>

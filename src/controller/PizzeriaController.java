@@ -4,6 +4,7 @@ import au.edu.uts.ap.javafx.Controller;
 import au.edu.uts.ap.javafx.ViewLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,14 +14,17 @@ import model.Pizzeria;
 
 public class PizzeriaController extends Controller<Pizzeria> {
     @FXML private ListView<Customer> customersLv;
+    @FXML private Button selected;
     
     private Customer getSelectedCustomer() {
         return customersLv.getSelectionModel().getSelectedItem();
     }
     
     @FXML public void initialize() {
-//        Image img = new Image("file:pizzeria.png");
-//        ImageView imageView = new ImageView(img);
+        selected.setDisable(true);
+        customersLv.getSelectionModel().selectedItemProperty().addListener(
+             (event) -> selected.setDisable(false)
+        );
     }
     
     @FXML protected void handleAddCustomerAction(ActionEvent event) throws Exception {
