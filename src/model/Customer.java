@@ -1,13 +1,18 @@
 package model;
 
 import java.util.LinkedList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Customer {
     private Kitchen kitchen;
     private String phone;
     private String name;
-    private LinkedList<Pizza> ordered = new LinkedList<Pizza>();
-    private LinkedList<Pizza> order = new LinkedList<Pizza>();
+    private ObservableList<Pizza> order = FXCollections.observableArrayList();
+    private ObservableList<Pizza> ordered = FXCollections.observableArrayList();
+    private double orderPrice;
+//    private LinkedList<Pizza> ordered = new LinkedList<Pizza>();
+//    private LinkedList<Pizza> order = new LinkedList<Pizza>();
 
     public Customer(Kitchen kitchen, String phone, String name) {
         this.kitchen = kitchen;
@@ -43,11 +48,11 @@ public class Customer {
         return kitchen;
     }
 
-    public LinkedList<Pizza> getOrdered() {
+    public ObservableList<Pizza> getOrdered() {
         return ordered;
     }
 
-    public LinkedList<Pizza> getOrder() {
+    public ObservableList<Pizza> getOrder() {
         return order;
     }
 

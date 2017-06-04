@@ -10,6 +10,18 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Customer;
 import model.Pizzeria;
+import model.Pizza;
 
-public class ServeController {
+public class ServeController extends Controller<Customer>{
+    @FXML private String nameTxt;
+    @FXML private String phone;
+    @FXML private ListView<Pizza> orderLv;
+    
+    @FXML public void initialize() {
+        
+    }
+    
+    public final Customer getCustomer() {
+        return model;
+    }
 }

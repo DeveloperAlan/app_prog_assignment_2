@@ -19,8 +19,8 @@ public class PizzeriaController extends Controller<Pizzeria> {
     }
     
     @FXML public void initialize() {
-        Image img = new Image("file:pizzeria.png");
-        ImageView imageView = new ImageView(img);
+//        Image img = new Image("file:pizzeria.png");
+//        ImageView imageView = new ImageView(img);
     }
     
     @FXML protected void handleAddCustomerAction(ActionEvent event) throws Exception {
