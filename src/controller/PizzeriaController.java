@@ -28,7 +28,7 @@ public class PizzeriaController extends Controller<Pizzeria> {
     }
     
     @FXML protected void handleAddCustomerAction(ActionEvent event) throws Exception {
-        ViewLoader.showStage(null, "/view/customer_add.fxml", "Add customer", new Stage());
+        ViewLoader.showStage(model, "/view/customer_add.fxml", "Add customer", new Stage());
     }
     
     @FXML protected void handleServeCustomerAction(ActionEvent event) throws Exception {
