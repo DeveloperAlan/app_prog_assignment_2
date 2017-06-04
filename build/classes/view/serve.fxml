@@ -41,7 +41,7 @@
     </GridPane>
     <VBox spacing="10">
         <HBox spacing="10"> 
-            <Button text="Create pizza" />
+            <Button text="Create pizza" onAction="#handleCreatePizzaAction" />
             <Text styleClass="big" text="OR..."/>
             <ComboBox promptText="Select past popular pizza" items="${controller.customer.ordered}" fx:id="orderedLv" prefWidth="550" />
             <Button text="Select" fx:id="pizzaSelectBtn" onAction="#handlePizzaSelectionAction" />

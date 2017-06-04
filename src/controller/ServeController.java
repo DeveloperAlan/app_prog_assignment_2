@@ -61,9 +61,13 @@ public class ServeController extends Controller<Customer>{
         stage.close();
     }
     
-    
+   
     @FXML protected void handleCancelOrderAction(ActionEvent event) throws Exception {
         model.cancelOrder();
         stage.close();
+    }
+    
+    @FXML protected void handleCreatePizzaAction(ActionEvent event) throws Exception {
+        ViewLoader.showStage(new Pizza(model), "/view/pizza.fxml", "Create pizza", new Stage());
     }
 }
