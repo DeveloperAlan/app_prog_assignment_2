@@ -11,17 +11,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
 
-<VBox xmlns:fx="http://javafx.com/fxml">
+<VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="controller.ReportController"
+        alignment="center" spacing="10" 
+        styleClass="root"
+        >
+    <GridPane alignment="center" hgap="10" vgap="10" styleClass="header">
+        <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <image>
+                <Image url="@pizzeria.png" />
+            </image>
+        </ImageView>
+        <Text styleClass="heading" text="Income Report" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
+    </GridPane>
     
-    <HBox prefHeight="208" alignment="center" spacing="10">
-        <padding> 
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-        </padding>
+    <HBox prefHeight="50.0" alignment="center" spacing="10" styleClass="footer">
+        <Button text="Close" onAction="#handleCloseWindowAction"/>
     </HBox>
-
-    <HBox prefHeight="50.0" alignment="center" spacing="10" >
-        <Button text="Serve Customer" />
-        <Button text="View report" />
-    </HBox>
+    <stylesheets><URL value="@style.css"/></stylesheets>
 </VBox>

@@ -5,7 +5,7 @@
 [y] The Create pizza window is at least partially done.
 [y] The Create pizza window is done.
 [y] The Add customer window is at least partially done.
-[?] The Add customer window is done.
+[y] The Add customer window is done.
 [?] The Income report window is at least partially done.
 [?] The Income report window is done.
 [?] The Bonus feature is mostly done.
