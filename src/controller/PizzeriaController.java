@@ -36,7 +36,7 @@ public class PizzeriaController extends Controller<Pizzeria> {
     }
     
     @FXML protected void handleViewReportAction(ActionEvent event) throws Exception {
-        ViewLoader.showStage(model, "/view/report.fxml", "Income report", new Stage());
+        ViewLoader.showStage(model.getKitchen(), "/view/report.fxml", "Income report", new Stage());
     }
 
     public final Pizzeria getPizzeria() {

@@ -1,6 +1,9 @@
 package model;
 
 import java.util.LinkedList;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,6 +13,7 @@ public class Kitchen {
     public static final Category TOPPING = new Category("topping", 2, 3);
     private Category[] categories = { CRUST, SAUCE, TOPPING };
     private ObservableList<Ingredient> ingredients = FXCollections.observableArrayList();
+    private DoubleProperty income = new SimpleDoubleProperty();
 
     public Kitchen() {
         // Don't change these ingredients
@@ -31,11 +35,15 @@ public class Kitchen {
     public ObservableList<Ingredient> getIngredients() {
         return ingredients;
     }
+    
+    public final double getIncome() {
+        return income.get();
+    }
 
-    public double getIncome() {
-        double sum = 0.0;
+    public ReadOnlyDoubleProperty incomeProperty() {
+        income.set(0);
         for (Ingredient ingredient : ingredients)
-            sum += ingredient.getIncome();
-        return sum;
+            income.set(income.get() + ingredient.getIncome());
+        return income;
     }
 }

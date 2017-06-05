@@ -27,6 +27,29 @@
         <Text styleClass="heading" text="Income Report" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"  />
     </GridPane>
     
+    <VBox spacing="10" styleClass="body">
+        <TableView fx:id="reportTv" prefWidth="300" prefHeight="300" 
+                   items="${controller.kitchen.ingredients}">
+            <columns>
+                <TableColumn text="Ingredient">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Price" fx:id="priceClm">
+                </TableColumn>
+                <TableColumn text="Sold" fx:id="soldClm">
+                </TableColumn>
+                <TableColumn text="Income" fx:id="incomeClm">
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox>
+            <Label text="Total Income: " />
+            <Text fx:id="totalIncomeTxt" />
+        </HBox>
+    </VBox>
+    
     <HBox prefHeight="50.0" alignment="center" spacing="10" styleClass="footer">
         <Button text="Close" onAction="#handleCloseWindowAction"/>
     </HBox>

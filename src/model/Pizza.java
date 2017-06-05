@@ -50,8 +50,6 @@ public class Pizza {
     }
     
     public boolean checkIfPizzaIsValid() {
-        System.out.println(getStatusString().length() == 0);
-        System.out.println(getStatusString().length());
         return getStatusString().length() == 0;
     }
 
